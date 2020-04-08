@@ -6,12 +6,16 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <string.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 int _putchar(char c);
 void _puts(char *s);
 int _strlen(char *s);
-int printarg(int ac, char **av);
 int pid();
 int ppid();
+char *readarg(void);
+char **tokenize(char *readarg);
 
 #endif

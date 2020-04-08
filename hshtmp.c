@@ -1,0 +1,9 @@
+int main(int ac, char **av)
+{
+	//READ COMMAND LINE (PRINT $)
+
+	// SPLIT READ COMMAND LINE INTO ARRAY OF EACH WORD OF CMD LINE
+
+	//SOME EXECUTION STUFF (NOT THERE YET).
+	return (0);
+}
