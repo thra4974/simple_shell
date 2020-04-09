@@ -16,6 +16,6 @@ int _strlen(char *s);
 int pid();
 int ppid();
 char *readarg(void);
-char **tokenize(char *readarg);
+char *tokenize(char *readarg);
 
 #endif
