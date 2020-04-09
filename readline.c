@@ -8,7 +8,7 @@
 char *readarg(void)
 {
 	ssize_t rd = 0;
-	char *read;
+	char *read = NULL;
 
 	_puts("$ ");
 	while ((rd = getline(&read, &rd, stdin)) != -1)
