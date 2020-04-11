@@ -2,7 +2,13 @@
 
 int exec(char *argv[])
 {
-	char *args[] = {"/bin/ls", "-l", "/usr/", NULL};
+	char *args[] = {"/bin/sh", NULL};
+	char *envp[] =
+	{
+		"PATH=/bin:/usr/bin",
+		NULL
+	};
+
 	int stat = 0;
 	pid_t pid = fork();
 	if (pid == -1)
@@ -12,7 +18,7 @@ int exec(char *argv[])
 	}
 	if (pid == 0)
 	{
-		if ((execve(args[0], args, NULL) == -1))
+		if ((execve(args[0], args, envp) == -1))
 			perror("hsh");
 		exit(1);
 	}

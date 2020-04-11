@@ -2,19 +2,19 @@
 
 char **tokenize(char *read)
 {
-	char *delim = " ";
+	char *delim = " "; //sep read by spaces
 	int len = 0;
 	int i = 0;
 	int bufsize = 0;
-	while (read[len] != '\0')
+	while (read[len])
 		len++;
 	bufsize = len;
-	char **arrtok = malloc(bufsize * sizeof(char*) + 1);
-//	if (arrtok == NULL)
-//	{
-//		free(arrtok);
-//		return(0);
-//	}
+	char **arrtok = malloc(bufsize * sizeof(char*)); //malloc size of read input.
+	if (arrtok == NULL)
+	{
+		free(arrtok);
+		return(0);
+	}
 	char *tok = strtok(read, delim);
 	while(tok != NULL)
 	{

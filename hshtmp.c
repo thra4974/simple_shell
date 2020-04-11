@@ -1,12 +1,12 @@
 #include "holberton.h"
 
-#define _STAT (3)
+#define _STAT (1)
 
 int main(void)
 {
-
 	char *read;
 	char **arrtok;
+	int stat;
 	while(_STAT)
 	{
 		_puts("$ ");
@@ -20,5 +20,5 @@ int main(void)
 		free(read);
 		free(arrtok);
 	}
-	return (0);
+	exit(1);
 }
