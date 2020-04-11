@@ -1,11 +1,24 @@
 #include "holberton.h"
 
-int main(int ac, char **av)
+#define _STAT (3)
+
+int main(void)
 {
+
+	char *read;
+	char **arrtok;
+	while(_STAT)
+	{
+		_puts("$ ");
 	//READ COMMAND LINE (PRINT $)
-	char *arg = readarg();
+		read = readarg();
 	// SPLIT READ COMMAND LINE INTO ARRAY OF EACH WORD OF CMD LINE
-	tokenize(arg);
+		arrtok = tokenize(read);
 	//SOME EXECUTION STUFF (NOT THERE YET).
+		exec(arrtok);
+
+		free(read);
+		free(arrtok);
+	}
 	return (0);
 }

@@ -49,17 +49,3 @@ int _strlen(char *s)
  * @av: double pointer to array
  * Return: 0
  */
-
-int printarg(int ac, char **av)
-{
-	int i;
-
-	while (av[i] != NULL)
-	{
-		_puts(av[i]);
-		i++;
-		_putchar(' ');
-	}
-	_putchar('\n');
-	return (0);
-}

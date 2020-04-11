@@ -5,16 +5,18 @@
  * Return: line read
  */
 
+#define _EOF (-1)
+
 char *readarg(void)
 {
-	ssize_t rd = 0;
+	size_t rd = 0;
 	char *read = NULL;
 
-	_puts("$ ");
-	while ((rd = getline(&read, &rd, stdin)) != -1)
+	if (getline(&read, &rd, stdin) == _EOF)
 	{
-		_puts("$ ");
+		_puts("See ya!\n");
+		exit(1);
 	}
-	free(read);
+//	free(read);
 	return (read);
 }

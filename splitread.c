@@ -1,18 +1,21 @@
 #include "holberton.h"
 
-char **tokenize(char *readarg)
+char **tokenize(char *read)
 {
 	char *delim = " ";
+	int len = 0;
 	int i = 0;
-	char *tok = strtok(readarg, delim);
-	int bufsize = _strlen(readarg);
-	char **arrtok = malloc(sizeof(bufsize));
-
-	if (arrtok == NULL)
-	{
-		free(arrtok);
-		return(0);
-	}
+	int bufsize = 0;
+	while (read[len] != '\0')
+		len++;
+	bufsize = len;
+	char **arrtok = malloc(bufsize * sizeof(char*) + 1);
+//	if (arrtok == NULL)
+//	{
+//		free(arrtok);
+//		return(0);
+//	}
+	char *tok = strtok(read, delim);
 	while(tok != NULL)
 	{
 		arrtok[i] = tok;
@@ -20,6 +23,6 @@ char **tokenize(char *readarg)
 		tok = strtok(NULL, delim);
 	}
 	arrtok[i] = NULL;
-	free(arrtok);
+//	free(arrtok);
 	return (arrtok);
 }

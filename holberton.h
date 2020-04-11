@@ -15,8 +15,8 @@ void _puts(char *s);
 int _strlen(char *s);
 int pid();
 int ppid();
-char * readarg(void);
+char *readarg(void);
 char **tokenize(char *readarg);
-ssize_t rdsize(void);
+int exec(char **argv);
 
 #endif
