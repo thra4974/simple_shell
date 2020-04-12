@@ -13,8 +13,8 @@
 int _putchar(char c);
 void _puts(char *s);
 int _strlen(char *s);
-int pid();
-int ppid();
+int pid(void);
+int ppid(void);
 char *readarg(void);
 char **tokenize(char *readarg);
 int exec(char **argv);
