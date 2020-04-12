@@ -6,10 +6,10 @@ int main(void)
 {
 	char *read;
 	char **arrtok;
-	int stat;
+//	int stat;
 	while(_STAT)
 	{
-		_puts("$ ");
+		_puts(">> ");
 	//READ COMMAND LINE (PRINT $)
 		read = readarg();
 	// SPLIT READ COMMAND LINE INTO ARRAY OF EACH WORD OF CMD LINE

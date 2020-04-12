@@ -16,7 +16,7 @@ char **tokenize(char *read)
 		return(0);
 	}
 	char *tok = strtok(read, delim);
-	while(tok != NULL)
+	while(tok != NULL && i < bufsize)
 	{
 		arrtok[i] = tok;
 		i++;
