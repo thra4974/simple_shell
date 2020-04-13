@@ -7,11 +7,11 @@
  * Return: Exit on success.
  */
 
-int main(void)
+int main(int ac, char **argv)
 {
 	char *read;
 	char **arrtok;
-/**	int stat; **/
+
 	while (_STAT)
 	{
 		_puts("tristan$ ");
@@ -19,10 +19,12 @@ int main(void)
 		read = readarg();
 		/** SPLIT READ COMMAND LINE INTO ARRAY OF EACH WORD OF CMD LINE**/
 		arrtok = tokenize(read);
-		/**SOME EXECUTION STUFF (NOT THERE YET).**/
+		/** execve resulting vector of strings **/
 		exec(arrtok);
 		free(read);
-		free(arrtok);
+		free(arrtok); 
 	}
+	free(read);
+	free(arrtok);
 	exit(1);
 }

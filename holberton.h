@@ -13,10 +13,13 @@
 int _putchar(char c);
 void _puts(char *s);
 int _strlen(char *s);
+int _strcmp(char *str1, char *str2);
+char *_strdup(char *src);
 int pid(void);
 int ppid(void);
 char *readarg(void);
 char **tokenize(char *readarg);
 int exec(char **argv);
+ssize_t _getline(char *read, ssize_t rd, int fd);
 
 #endif

@@ -12,12 +12,12 @@ char **tokenize(char *read)
 {
 	int len = 0;
 	int i = 0;
-	int bufsize = 0;
+	int bufsize = 64;
 
 	while (read[len] != '\0')
 		len++;
 	bufsize = len;
-	char **arrtok = malloc(bufsize * sizeof(char *) + 1);
+	char **arrtok = malloc(bufsize * sizeof(char *));
 	/** malloc size of read input.**/
 	if (arrtok == NULL)
 	{
@@ -33,6 +33,5 @@ char **tokenize(char *read)
 		tok = strtok(NULL, DELM);
 	}
 	arrtok[i] = NULL;
-/**	free(arrtok); **/
 	return (arrtok);
 }
