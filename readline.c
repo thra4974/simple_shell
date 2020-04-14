@@ -5,18 +5,18 @@
  * Return: line read
  */
 
-#define _EOF (-1) //personal definition for preferance.
+#define _EOF (-1)
 
 char *readarg(void)
 {
 	size_t rd = 0;
-	char *read; // What happens if this is uninitialized?
+	char *read = NULL;
 
 	if (getline(&read, &rd, stdin) == _EOF)
 	{
-		_puts("See ya!\n"); //exit message test, did I handle EOF?
-		exit(1); // Define some exit status.
+		_puts("See ya!\n");
+		free(read);
+		exit(1);
 	}
-//	free(read); // is free necessary here? Ask Valgrind.
 	return (read);
 }
