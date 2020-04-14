@@ -6,8 +6,6 @@
  * Return: integers (status);
  */
 
-//extern char **environ;
-
 void exec(char *argv[])
 {
 	char *envp[] = {"PATH=/bin/", NULL};

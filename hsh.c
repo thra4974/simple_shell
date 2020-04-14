@@ -4,6 +4,9 @@
 
 /**
  * main - main function for holberton shell
+ * @ac: count of args
+ * @argv: argument vector
+ * @env: pointer to environment parameter
  * Return: Exit on success.
  */
 
@@ -26,5 +29,5 @@ int main(int ac, char **argv, char **env)
 		free(read);
 		free(arrtok);
 	}
-	return(0);
+	return (0);
 }
