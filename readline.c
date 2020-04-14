@@ -15,6 +15,7 @@ char *readarg(void)
 	if (getline(&read, &rd, stdin) == _EOF)
 	{
 		_puts("See ya!\n"); //exit message test, did I handle EOF?
+		free(read);
 		exit(1); // Define some exit status.
 	}
 	return (read);

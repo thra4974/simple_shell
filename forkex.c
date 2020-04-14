@@ -6,11 +6,11 @@
  * Return: integers (status);
  */
 
-extern char **environ;
+//extern char **environ;
 
-int exec(char *argv[], char *envp[])
+void exec(char *argv[])
 {
-	char *envp[] = {NULL};
+	char *envp[] = {"PATH=/bin/", NULL};
 	int stat = 0;
 	pid_t pid = fork();
 
@@ -26,5 +26,4 @@ int exec(char *argv[], char *envp[])
 		exit(1);
 	}
 	wait(&stat);
-	return (0);
 }

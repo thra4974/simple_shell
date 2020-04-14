@@ -15,11 +15,14 @@ void _puts(char *s);
 int _strlen(char *s);
 int _strcmp(char *str1, char *str2);
 char *_strdup(char *src);
+char *_strcat(char *dest, char *src);
 int pid(void);
 int ppid(void);
 char *readarg(void);
 char **tokenize(char *readarg);
-int exec(char **argv);
+void exec(char *argv[]);
+int path_size(char *path);
+char **get_path(char **env);
 ssize_t _getline(char *read, ssize_t rd, int fd);
 
 #endif

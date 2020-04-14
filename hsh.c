@@ -7,7 +7,7 @@
  * Return: Exit on success.
  */
 
-int main(int ac, char **argv)
+int main(int ac, char **argv, char **env)
 {
 	char *read;
 	char **arrtok;
@@ -21,10 +21,10 @@ int main(int ac, char **argv)
 		arrtok = tokenize(read);
 		/** execve resulting vector of strings **/
 		exec(arrtok);
+		if (argv[0] == NULL)
+			return (0);
 		free(read);
-		free(arrtok); 
+		free(arrtok);
 	}
-	free(read);
-	free(arrtok);
-	exit(1);
+	return(0);
 }

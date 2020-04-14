@@ -2,7 +2,7 @@
 
 extern char **environ;
 
-int main(void)
+int env(void)
 {
 	int i;
 

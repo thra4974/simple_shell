@@ -1,34 +1,6 @@
 #include "holberton.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: character to print
- * Return: 1 on success, -1 on error.
- */
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
- * _puts - prints string
- * @s: pointer to string
- * Return: nothing.
- */
-
-void _puts(char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
-	{
-		_putchar(s[i]);
-		i++;
-	}
-}
-
-/**
  * _strlen - returns length of string
  * @s: pointer to string
  * Return: integer length of string
@@ -79,7 +51,7 @@ char *_strdup(char *src)
 	src_size = _strlen(src);
 	dup = malloc(sizeof(char) * src_size + 1);
 	if (dup == NULL)
-		return(NULL);
+		return (NULL);
 	dup_offset = dup;
 	while (*src)
 	{
@@ -89,4 +61,21 @@ char *_strdup(char *src)
 	}
 	*dup_offset = '\0';
 	return (dup);
+}
+
+/**
+ * _strcat - concatenates source string to destination.
+ * @dest: pointer destination string
+ * @src: pointer to src string
+ * Return: concatenated string.
+ */
+
+char *_strcat(char *dest, char *src)
+{
+	char *ptr = dest + _strlen(dest);
+
+	while (*src != '\0')
+		*ptr++ = *src++;
+	ptr = '\0';
+	return (dest);
 }
