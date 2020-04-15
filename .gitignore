@@ -2,3 +2,7 @@ config
 hsh
 shell
 /out
+/sf-0119_shell_test_suite
+test
+rj
+max_pid
