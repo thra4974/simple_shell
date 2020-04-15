@@ -15,19 +15,16 @@ int main(int ac, char **argv, char **env)
 	char *read;
 	char **arrtok;
 
-	while (_STAT)
+	while (1)
 	{
-		_puts("tristan$ ");
-		/**READ COMMAND LINE (PRINT $)**/
+		_puts("$ ");
 		read = readarg();
-		/** SPLIT READ COMMAND LINE INTO ARRAY OF EACH WORD OF CMD LINE**/
 		arrtok = tokenize(read);
-		/** execve resulting vector of strings **/
 		exec(arrtok);
 		if (argv[0] == NULL)
 			return (0);
 		free(read);
 		free(arrtok);
 	}
-	return (0);
+	exit(0);
 }
