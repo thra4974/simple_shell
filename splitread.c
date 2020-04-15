@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-#define DELM "\n\t " /**MACRO used, if variable used got undesirable bev **/
+#define DELM "\n\t "
 
 /**
  * tokenize - splits getline result into vector of strings
@@ -18,7 +18,7 @@ char **tokenize(char *read)
 		len++;
 	bufsize = len;
 	char **arrtok = malloc(bufsize * sizeof(char *));
-	/** malloc size of read input.**/
+
 	if (arrtok == NULL)
 	{
 		free(arrtok);
