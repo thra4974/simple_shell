@@ -22,7 +22,7 @@ char **tokenize(char *read)
 	if (arrtok == NULL)
 	{
 		free(arrtok);
-		exit(1);
+		exit(0);
 	}
 	char *tok = strtok(read, DELM);
 

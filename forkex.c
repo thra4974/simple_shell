@@ -15,13 +15,13 @@ void exec(char *argv[])
 	if (pid == -1)
 	{
 		perror("Failed to fork\n");
-		exit(1); /**define exit status**/
+		exit(-1); /**define exit status**/
 	}
 	if (pid == 0)
 	{
 		if ((execve(argv[0], argv, envp) == -1))
 			perror("hsh");
-		exit(1);
+		exit(0);
 	}
 	wait(&stat);
 }
