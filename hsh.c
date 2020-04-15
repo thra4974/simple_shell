@@ -4,7 +4,6 @@
 
 /**
  * main - main function for holberton shell
- * @argv: argument vector
  * Return: Exit on success.
  */
 
