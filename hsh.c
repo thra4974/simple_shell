@@ -4,25 +4,21 @@
 
 /**
  * main - main function for holberton shell
- * @ac: count of args
  * @argv: argument vector
- * @env: pointer to environment parameter
  * Return: Exit on success.
  */
 
-int main(int ac, char **argv, char **env)
+int main(void)
 {
 	char *read;
 	char **arrtok;
 
-	while (1)
+	while (_STAT)
 	{
 		_puts("$coder ");
 		read = readarg();
 		arrtok = tokenize(read);
 		exec(arrtok);
-		if (argv[0] == NULL)
-			return (0);
 		free(read);
 		free(arrtok);
 	}
