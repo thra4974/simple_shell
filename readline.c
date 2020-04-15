@@ -15,6 +15,7 @@ char *readarg(void)
 	if (getline(&read, &rd, stdin) == _EOF)
 	{
 		free(read);
+		_putchar('\n');
 		exit(0);
 	}
 	return (read);
