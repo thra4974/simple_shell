@@ -17,7 +17,7 @@ int main(int ac, char **argv, char **env)
 
 	while (1)
 	{
-		_puts("$ ");
+		_puts("$coder ");
 		read = readarg();
 		arrtok = tokenize(read);
 		exec(arrtok);
