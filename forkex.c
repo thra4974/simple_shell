@@ -9,7 +9,7 @@
  * Return: integers (status);
  */
 
-int exec(char **arrtok, char *PRGM, char *readline, char **env)
+int exec(char *arrtok[], char *PRGM, char *readline, char **env)
 {
 	pid_t pid = fork();
 	char *cmd = arrtok[0];
