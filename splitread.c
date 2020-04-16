@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-#define DELM "\n\t "
+#define DELM " \n\t\v\r\a"
 
 /**
  * tokenize - splits getline result into vector of strings

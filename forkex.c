@@ -9,16 +9,18 @@
  * Return: integers (status);
  */
 
-void exec(char **arrtok, char *PRGM, char *readline, char **env)
+int exec(char **arrtok, char *PRGM, char *readline, char **env)
 {
-	int stat = 0;
 	pid_t pid = fork();
 	char *cmd = arrtok[0];
+	int status;
+	int EXIT_CODE = 0;
 
 	if (pid < 0)
 	{
 		perror(PRGM);
-		exit(EXIT_FAILURE);
+		EXIT_CODE = 126;
+		_exit(EXIT_CODE);
 	}
 	else if (pid == 0)
 	{
@@ -27,8 +29,12 @@ void exec(char **arrtok, char *PRGM, char *readline, char **env)
 			exe_err(cmd);
 			free(arrtok);
 			free(readline);
+			EXIT_CODE = 126;
+			_exit(EXIT_CODE);
 		}
-		exit(EXIT_SUCCESS);
+		_exit(EXIT_SUCCESS);
 	}
-	wait(&stat);
+	waitpid(pid, &status, WEXITSTATUS(status));
+	EXIT_CODE = WEXITSTATUS(status);
+	return (EXIT_CODE);
 }
