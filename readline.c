@@ -7,16 +7,15 @@
 
 #define _EOF (-1)
 
-char *readarg(void)
+char *readarg(int EXIT_CODE)
 {
-	int exitcode = 0;
 	size_t rd = 0;
-	char *read = NULL;
+	char *readline = NULL;
 
-	if (getline(&read, &rd, stdin) == _EOF)
+	if (getline(&readline, &rd, stdin) == _EOF)
 	{
-		free(read);
-		exit(exitcode);
+		free(readline);
+		exit(EXIT_CODE);
 	}
-	return (read);
+	return (readline);
 }

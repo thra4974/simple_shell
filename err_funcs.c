@@ -6,15 +6,15 @@
  * Return: 0
  */
 
-void *cmd_err(char *NAME)
+void cmd_err(char *NAME)
 {
+
 	write(STDERR_FILENO, NAME, _strlen(NAME));
 	write(STDERR_FILENO, ": ", 2);
 /**	print_num(errorcount); **/
 	write(STDERR_FILENO, ": ", 2);
 /**	write(STDERR_FILENO, cmd, _strlen(cmd)); **/
 	write(STDERR_FILENO, ": not found\n", 13);
-	return (0);
 }
 
 /**
