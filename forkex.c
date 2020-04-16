@@ -15,14 +15,14 @@ void exec(char *argv[])
 
 	if (pid < 0)
 	{
-		perror("hsh");
+		perror("./hsh");
 		exit(EXIT_FAILURE);
 	}
 	if (pid == 0)
 	{
 		if ((execve(CMDNAME, argv, envp) == -1))
 		{
-			perror("hsh");
+			perror("./hsh");
 		}
 		exit(EXIT_SUCCESS);
 	}
