@@ -10,8 +10,7 @@
  * Return: Exit on success.
  */
 
-int main(__attribute__((unused)) int argc, char **argv, __attribute__((unused))
-	 char **env)
+int main(__attribute__((unused)) int argc, char **argv, char **env)
 {
 	char *readline = NULL;
 	char **arrtok = NULL;
@@ -26,7 +25,7 @@ int main(__attribute__((unused)) int argc, char **argv, __attribute__((unused))
 		arrtok = tokenize(readline);
 		if (arrtok != NULL)
 		{
-			exec(arrtok, PRGM, readline);
+			exec(arrtok, PRGM, readline, env);
 			free(readline);
 			free(arrtok);
 		}

@@ -5,12 +5,12 @@
  * @arrtok: pointer array of tokens.
  * @PRGM: pointer to shell name
  * @readline: pointer to user input
+ * @env: dbl ptr to environment vector
  * Return: integers (status);
  */
 
-void exec(char **arrtok, char *PRGM, char *readline)
+void exec(char **arrtok, char *PRGM, char *readline, char **env)
 {
-	char *envp[] = {"PATH=/bin/", NULL};
 	int stat = 0;
 	pid_t pid = fork();
 	char *cmd = arrtok[0];
@@ -22,7 +22,7 @@ void exec(char **arrtok, char *PRGM, char *readline)
 	}
 	else if (pid == 0)
 	{
-		if ((execve(cmd, arrtok, envp) == -1))
+		if ((execve(cmd, arrtok, env) == -1))
 		{
 			exe_err(cmd);
 			free(arrtok);
