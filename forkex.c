@@ -2,27 +2,31 @@
 
 /**
  * exec - fork exec and wait function
- * @argv: pointer to array of strings
+ * @arrtok: pointer array of tokens.
+ * @PRGM: pointer to shell name
+ * @readline: pointer to user input
  * Return: integers (status);
  */
 
-void exec(char *argv[])
+void exec(char **arrtok, char *PRGM, char *readline)
 {
 	char *envp[] = {"PATH=/bin/", NULL};
 	int stat = 0;
 	pid_t pid = fork();
-	char *CMDNAME = argv[0];
+	char *cmd = arrtok[0];
 
 	if (pid < 0)
 	{
-		perror("./hsh");
+		perror(PRGM);
 		exit(EXIT_FAILURE);
 	}
-	if (pid == 0)
+	else if (pid == 0)
 	{
-		if ((execve(CMDNAME, argv, envp) == -1))
+		if ((execve(cmd, arrtok, envp) == -1))
 		{
-			perror("./hsh");
+			exe_err(cmd);
+			free(arrtok);
+			free(readline);
 		}
 		exit(EXIT_SUCCESS);
 	}

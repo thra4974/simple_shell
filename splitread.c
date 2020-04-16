@@ -4,17 +4,17 @@
 
 /**
  * tokenize - splits getline result into vector of strings
- * @read: resulting string form getline
+ * @readline: resulting string form getline
  * Return: array of strings
  */
 
-char **tokenize(char *read)
+char **tokenize(char *readline)
 {
 	int len = 0;
 	int i = 0;
 	int bufsize = 64;
 
-	while (read[len] != '\0')
+	while (readline[len] != '\0')
 		len++;
 	bufsize = len;
 	char **arrtok = malloc(bufsize * sizeof(char *));
@@ -25,7 +25,7 @@ char **tokenize(char *read)
 		_puts("no file to be found");
 		exit(127);
 	}
-	char *tok = strtok(read, DELM);
+	char *tok = strtok(readline, DELM);
 
 	while (tok != NULL && i < bufsize)
 	{
