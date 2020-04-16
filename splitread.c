@@ -22,7 +22,8 @@ char **tokenize(char *read)
 	if (arrtok == NULL)
 	{
 		free(arrtok);
-		exit(0);
+		_puts("no file to be found");
+		exit(127);
 	}
 	char *tok = strtok(read, DELM);
 

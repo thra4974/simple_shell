@@ -11,16 +11,19 @@ void exec(char *argv[])
 	char *envp[] = {"PATH=/bin/", NULL};
 	int stat = 0;
 	pid_t pid = fork();
+	char *CMDNAME = argv[0];
 
-	if (pid == -1)
+	if (pid < 0)
 	{
-		perror("Failed to fork\n");
+		perror("hsh");
 		exit(EXIT_FAILURE);
 	}
 	if (pid == 0)
 	{
-		if ((execve(argv[0], argv, envp) == -1))
+		if ((execve(CMDNAME, argv, envp) == -1))
+		{
 			perror("hsh");
+		}
 		exit(EXIT_SUCCESS);
 	}
 	wait(&stat);

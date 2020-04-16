@@ -9,17 +9,22 @@
 
 int main(void)
 {
-	char *read;
-	char **arrtok;
+	char *read = NULL;
+	char **arrtok = NULL;
+	int is_atty = isatty(0);
 
 	while (_STAT)
 	{
-		_puts("$coder ");
+		if (is_atty)
+			_puts("CodeAsIce$ ");
 		read = readarg();
 		arrtok = tokenize(read);
-		exec(arrtok);
-		free(read);
-		free(arrtok);
+		if (arrtok != NULL)
+		{
+			exec(arrtok);
+			free(read);
+			free(arrtok);
+		}
 	}
-	exit(0);
+	return (0);
 }
