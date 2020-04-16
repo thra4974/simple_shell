@@ -22,7 +22,7 @@ int pid(void);
 int ppid(void);
 char *readarg(void);
 char **tokenize(char *readline);
-void exec(char **arrtok, char *PRGM, char *readline);
+void exec(char **arrtok, char *PRGM, char *readline, char **env);
 void *cmd_err(char *NAME);
 void exe_err(char *command);
 void *perm_denied(char *NAME);
