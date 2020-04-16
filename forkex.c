@@ -13,14 +13,13 @@ int exec(char **arrtok, char *PRGM, char *readline, char **env)
 {
 	pid_t pid = fork();
 	char *cmd = arrtok[0];
-	int status;
+	int status = 0;
 	int EXIT_CODE = 0;
 
 	if (pid < 0)
 	{
 		perror(PRGM);
-		EXIT_CODE = 126;
-		_exit(EXIT_CODE);
+		_exit(EXIT_FAILURE);
 	}
 	else if (pid == 0)
 	{
