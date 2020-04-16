@@ -9,7 +9,9 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <errno.h>
 
+extern int errno;
 int _putchar(char c);
 void _puts(char *s);
 int _strlen(char *s);

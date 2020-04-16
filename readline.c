@@ -9,14 +9,14 @@
 
 char *readarg(void)
 {
+	int exitcode = 0;
 	size_t rd = 0;
 	char *read = NULL;
 
 	if (getline(&read, &rd, stdin) == _EOF)
 	{
 		free(read);
-		_putchar('\n');
-		exit(0);
+		exit(exitcode);
 	}
 	return (read);
 }
