@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-#define DELM " \n\t\v\r\a"
+#define DELIM " \n\t\v\a"
 
 /**
  * _argleng - splits getline result into vector of strings
@@ -37,6 +37,7 @@ char **tokenize(char *readline)
 	int i = 0;
 	int bufsize;
 	char **arrtok;
+	char *tok;
 
 	bufsize = _argleng(readline);
 	arrtok = malloc((bufsize + 1) * sizeof(char *));
@@ -44,22 +45,16 @@ char **tokenize(char *readline)
 	if (arrtok == NULL)
 	{
 		free(arrtok);
-		_puts("no file to be found");
+		return (NULL);
 	}
-	char *tok = strtok(readline, DELM);
+	tok = strtok(readline, DELIM);
 
-	while (tok != NULL && i < bufsize)
+	while (tok != NULL && i <= bufsize)
 	{
 		arrtok[i] = tok;
 		i++;
-		tok = strtok(NULL, DELM);
+		tok = strtok(NULL, DELIM);
 	}
 	arrtok[i] = NULL;
 	return (arrtok);
 }
-
-/**
- * _arglen - counts the number of arguments from user
- * @readline: pointer to user input arguments
- * Return: args
- */
