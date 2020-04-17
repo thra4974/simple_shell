@@ -1,8 +1,9 @@
-<h1> CodeAsIce (a simple command line interpreter) </h1>
+<h1> ** Code_As_Ice **</h1>
+<h3> a simple command line interpreter </h3>
 
 Creating a shell in linux using the C programming language.
 
-![Simple Shell Intro] (/home/tristan/simple_shell/devintro.png)
+![Simple Shell Intro](./devintro.png "Intro")
 
 **CodeAsIce** is a simple command line intepreter that is based on the
 Unix shell.
