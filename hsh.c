@@ -38,6 +38,11 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			input_c++;
 		}
 		arrtok = tokenize(readline); /* split input into array of strings */
+		if (_strcmp(arrtok[0], "exit") == 0)
+		{
+			free(readline), free(arrtok);
+			return (EXIT_CODE);
+		}
 		if (arrtok != NULL)
 		{
 			EXIT_CODE = exec(arrtok, PRGM, readline, env);
@@ -46,5 +51,5 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 	}
 	free(readline);
 	free(arrtok);
-	return (EXIT_SUCCESS);
+	return (0);
 }
