@@ -1,2 +1,30 @@
-# Beginning of man page for simple shell project.
-# 
+.TH hsh "March 2020" "Code_As_Ice(hsh)  Manual"
+.SH NAME
+.B hsh
+ - a simple shell replica
+
+.SH SYNOPSIS
+command [-o option_name] [command_file [argument ...]]
+
+.SH DESCRIPTION
+.B Code_As_Ice
+is a simple command line interpreter made as a milestone project for Holberton School
+.SH INVOCATION
+
+if no args are present and if the standard input of the shell is connected to a terminal, the shell is considered an interactive shell. An interactive shell generally prompts before each command and handles programming and command errors differently.
+
+Upon starting, hsh inspects the first argument (argument 0) as a name of a file from which to read commands. Commands following the shell are treated as additional parameters.
+
+.SH NOTES
+Currently, hsh does not support the following:
+
+.B pwd, env, exit, cd, PATH, help, ...
+
+Ctrl-C enabled
+
+.SH KNOWN BUGS
+
+Given the progress, there are no known bugs as of yet.
+
+.SH AUTHOR
+Written by Tristan Thrasher
