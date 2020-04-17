@@ -2,18 +2,16 @@
 
 /**
  * cmd_err - function prints error if command not found
- * @NAME: pointer to name of caller
+ * @cmd1: pointer to name of caller
  * Return: 0
  */
 
-void cmd_err(char *NAME)
+void cmd_err(char *cmd1)
 {
 
-	write(STDERR_FILENO, NAME, _strlen(NAME));
+	/* Not good practice, find a way to use less sys call */
+	write(STDERR_FILENO, cmd1, _strlen(cmd1));
 	write(STDERR_FILENO, ": ", 2);
-/**	print_num(errorcount); **/
-	write(STDERR_FILENO, ": ", 2);
-/**	write(STDERR_FILENO, cmd, _strlen(cmd)); **/
 	write(STDERR_FILENO, ": not found\n", 13);
 }
 
