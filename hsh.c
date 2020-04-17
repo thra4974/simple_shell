@@ -12,15 +12,12 @@
 
 int main(__attribute__((unused)) int argc, char **argv, char **env)
 {
-	/** argc unused, arg counter set in splitread.c */
-
 	char *readline = NULL;
 	char **arrtok;
 	char *PRGM = argv[0];
-	int EXIT_CODE = 0;
+	int EXIT_CODE, input_c = 0;
 	size_t n = 0;
 	ssize_t rd = 0;
-	int input_c = 0;
 
 	for (;;) /* loop endlessly until exit */
 	{
@@ -29,8 +26,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 		rd = getline(&readline, &n, stdin);
 		if (rd == _EOF)
 		{
-			free(readline);
-			exit(EXIT_CODE); /*recieve exit status */
+			free(readline), exit(EXIT_CODE); /*recieve exit status */
 		}
 		if (readline[input_c] == '\n') /* handling empty inputs */
 		{
@@ -43,13 +39,17 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			free(readline), free(arrtok);
 			return (EXIT_CODE);
 		}
+		if (_strcmp(arrtok[0], "env") == 0)
+		{
+			_env(env, arrtok);
+			continue;
+		}
 		if (arrtok != NULL)
 		{
 			EXIT_CODE = exec(arrtok, PRGM, readline, env);
 			free(arrtok);
 		}
 	}
-	free(readline);
-	free(arrtok);
+	free(readline), free(arrtok);
 	return (0);
 }
