@@ -22,8 +22,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 	ssize_t rd = 0;
 	int input_c = 0;
 
-	do
-	{
+	do {
 		if (is_atty)
 			_puts("CodeAsIce$ ");
 		rd = getline(&readline, &n, stdin);
@@ -43,7 +42,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 			EXIT_CODE = exec(arrtok, PRGM, readline, env);
 			free(arrtok);
 		}
-	} while(_STAT);
+	} while (_STAT);
 	free(readline);
 	free(arrtok);
 	return (EXIT_SUCCESS);
