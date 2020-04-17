@@ -13,21 +13,38 @@
 
 extern int EXIT_CODE;
 extern int errno;
+
+/* write functions */
 int _putchar(char c);
 void _puts(char *s);
+
+/* string functions */
+
 int _strlen(char *s);
 int _strcmp(char *str1, char *str2);
 char *_strdup(char *src);
 char *_strcat(char *dest, char *src);
+
+/* pid functions */
+
 int pid(void);
 int ppid(void);
+
+/* main functions */
+
 char *readarg(int EXIT_CODE);
 char **tokenize(char *readline);
 int _argleng(char *readline);
 int exec(char *arrtok[], char *PRGM, char *readline, char **env);
+
+/* Error functions */
+
 void cmd_err(char *NAME);
 void exe_err(char *command);
 void perm_denied(char *NAME);
+
+/* path functios */
+
 int path_size(char *path);
 char **get_path(char **env);
 ssize_t _getline(char *read, ssize_t rd, int fd);
