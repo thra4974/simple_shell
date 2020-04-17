@@ -39,7 +39,7 @@ int exec(char *arrtok[], char *PRGM, char *readline, char **env);
 
 /* Error functions */
 
-void cmd_err(char *NAME);
+void cmd_err(char *cmd1);
 void exe_err(char *command);
 void perm_denied(char *NAME);
 

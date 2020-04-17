@@ -16,14 +16,13 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 	char *readline = NULL;
 	char **arrtok;
 	char *PRGM = argv[0];
-	int is_atty = isatty(0);
 	int EXIT_CODE = 0;
 	size_t n = 0;
 	ssize_t rd = 0;
 	int input_c = 0;
 
 	do {
-		if (is_atty)
+		if (isatty(STDIN_FILENO))
 			_puts("CodeAsIce$ ");
 		rd = getline(&readline, &n, stdin);
 		if (rd == _EOF)
