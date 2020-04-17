@@ -49,4 +49,7 @@ int path_size(char *path);
 char **get_path(char **env);
 ssize_t _getline(char *read, ssize_t rd, int fd);
 
+/* environment functions */
+void _env(char **env, char **arrtok);
+
 #endif

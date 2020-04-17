@@ -19,3 +19,22 @@ int path_len(char *path)
 	}
 	return (count);
 }
+
+/**
+ * _env - env built-in prints the environment
+ * @env: pointer to environment variable
+ * @arrtok: pointer to arrtok
+ * Return: nothing
+ */
+
+void _env(char **env, char **arrtok)
+{
+	int i;
+
+	for (i = 0; env[i] != NULL; i++)
+	{
+		_puts(env[i]);
+		_putchar('\n');
+	}
+	free(arrtok);
+}
