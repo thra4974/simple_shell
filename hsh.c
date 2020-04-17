@@ -1,6 +1,5 @@
 #include "holberton.h"
 
-#define _STAT (1)
 #define _EOF (-1)
 
 /**
@@ -13,6 +12,8 @@
 
 int main(__attribute__((unused)) int argc, char **argv, char **env)
 {
+	/** argc unused, arg counter set in splitread.c */
+
 	char *readline = NULL;
 	char **arrtok;
 	char *PRGM = argv[0];
@@ -21,27 +22,28 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 	ssize_t rd = 0;
 	int input_c = 0;
 
-	do {
-		if (isatty(STDIN_FILENO))
+	for (;;) /* loop endlessly until exit */
+	{
+		if (isatty(STDIN_FILENO)) /* print prompt */
 			_puts("CodeAsIce$ ");
 		rd = getline(&readline, &n, stdin);
 		if (rd == _EOF)
 		{
 			free(readline);
-			exit(EXIT_CODE);
+			exit(EXIT_CODE); /*recieve exit status */
 		}
-		if (readline[input_c] == '\n')
+		if (readline[input_c] == '\n') /* handling empty inputs */
 		{
 			continue;
 			input_c++;
 		}
-		arrtok = tokenize(readline);
+		arrtok = tokenize(readline); /* split input into array of strings */
 		if (arrtok != NULL)
 		{
 			EXIT_CODE = exec(arrtok, PRGM, readline, env);
 			free(arrtok);
 		}
-	} while (_STAT);
+	}
 	free(readline);
 	free(arrtok);
 	return (EXIT_SUCCESS);

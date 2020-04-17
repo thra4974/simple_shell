@@ -21,11 +21,11 @@ int exec(char *arrtok[], char *PRGM, char *readline, char **env)
 		perror(PRGM);
 		_exit(EXIT_FAILURE);
 	}
-	else if (pid == 0)
+	else if (pid == 0) /* if child process */
 	{
-		if ((execve(cmd, arrtok, env) == -1))
+		if ((execve(cmd, arrtok, env) == -1)) /* only returns on error */
 		{
-			exe_err(cmd);
+			exe_err(cmd); /* perror if cmd can't execute */
 			free(arrtok);
 			free(readline);
 			EXIT_CODE = 126;
@@ -33,7 +33,9 @@ int exec(char *arrtok[], char *PRGM, char *readline, char **env)
 		}
 		_exit(EXIT_SUCCESS);
 	}
-	waitpid(pid, &status, WEXITSTATUS(status));
+	/* wait for terminated children */
+
+	waitpid(pid, &status, WEXITSTATUS(status)); /*Return exit stat of child */
 	EXIT_CODE = WEXITSTATUS(status);
-	return (EXIT_CODE);
+	return (EXIT_CODE); /*Return exit_code */
 }
