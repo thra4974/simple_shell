@@ -2,7 +2,7 @@
 
 Creating a shell in linux using the C programming language.
 
-![Simple Shell Intro] (/home/tristan/Pictures/devintro.png)
+![Simple Shell Intro] (/home/tristan/simple_shell/devintro.png)
 
 **CodeAsIce** is a simple command line intepreter that is based on the
 Unix shell.
